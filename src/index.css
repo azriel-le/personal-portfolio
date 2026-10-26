@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', sans-serif;
+  }
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #08080c;
+}
+::-webkit-scrollbar-thumb {
+  background: #27273a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f5a;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(18, 18, 26, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(26, 26, 38, 0.8);
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 12px 30px -10px rgba(139, 92, 246, 0.15);
+}
+
+/* Glowing text effects */
+.text-glow {
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, #a78bfa 0%, #818cf8 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle background noise overlay */
+.bg-noise {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Hide cursor on desktop when custom cursor active */
+@media (min-width: 1024px) {
+  .has-custom-cursor, .has-custom-cursor * {
+    cursor: none !important;
+  }
+}
