@@ -1,3 +1,9 @@
+import leaveSystemImg from '../assets/images/admindashboard.png';
+import gameZoneImg from '../assets/images/Game Zone.png';
+import freelancerImg from '../assets/images/Freelancer.png';
+import craftHubImg from '../assets/images/project_ethio_craft_hub.jpg';
+import clearanceImg from '../assets/images/project_university_clearance.jpg';
+
 export interface Project {
   id: string;
   number: string;
@@ -83,7 +89,7 @@ export const PROJECTS: Project[] = [
     description: "A comprehensive web application designed to digitize organizational leave requests, approvals, department balance tracking, and role-based administrative management.",
     longDescription: "The Employee Leave Management System resolves enterprise administrative bottlenecks by offering automated leave request routing, real-time quota calculations, multi-level manager approvals, and comprehensive PDF/CSV report generation. Built with a responsive React frontend and a structured RESTful backend architecture.",
     technologies: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Tailwind CSS", "REST API"],
-    image: "/src/assets/images/project_leave_system_1793009288252.jpg",
+    image: leaveSystemImg,
     features: [
       "Role-Based Access Control (Employee, Department Manager, HR Admin)",
       "Automated Leave Balance Deductions & Quotas",
@@ -109,7 +115,7 @@ export const PROJECTS: Project[] = [
     description: "A business operations platform tailored for gaming hubs to track active PlayStation console sessions, pool table matches, pricing tiers, and multi-branch daily revenue.",
     longDescription: "Game Zone Management System provides venue operators with instant visibility into console occupancy, match durations, hourly rates, snack inventories, and branch performance. Designed mobile-first to allow managers to control venue activity directly from their smartphones.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Express API", "MySQL", "Chart.js / Motion"],
-    image: "/src/assets/images/project_game_zone_1793009289499.jpg",
+    image: gameZoneImg,
     features: [
       "Live Station Monitoring (PlayStation Consoles & Pool Tables)",
       "Automated Session Timers & Hourly Billing Calculations",
@@ -135,7 +141,7 @@ export const PROJECTS: Project[] = [
     description: "A location-based freelance marketplace connecting Ethiopian customers with nearby skilled professionals for reliable, convenient, and accessible local services.",
     longDescription: "Freelancer Connect Ethiopia bridges the gap between local service providers and clients through geolocation discovery, categorized service listings, transparent customer reviews, and direct client communication channels.",
     technologies: ["React", "TypeScript", "Next.js", "NestJS", "MySQL", "Prisma", "Tailwind CSS"],
-    image: "/src/assets/images/project_freelancer_connect.jpg",
+    image: freelancerImg,
     features: [
       "Connected customers with nearby service providers based on location and service category",
       "Enabled users to discover professionals, communicate, and request services",
@@ -161,7 +167,7 @@ export const PROJECTS: Project[] = [
     description: "A cultural tourism and e-commerce platform showcasing Ethiopia’s rich heritage through festival and tour bookings, accommodation reservations, and traditional cultural products.",
     longDescription: "Ethio Craft Hub unites heritage travel with cultural commerce. It provides tourists with centralized reservations for iconic celebrations like Timket and Irreecha, historic destination tours, hotel lodging, and an authentic artisan marketplace.",
     technologies: ["React", "TypeScript", "Next.js", "Node.js", "MongoDB", "Tailwind CSS"],
-    image: "/src/assets/images/project_ethio_craft_hub.jpg",
+    image: craftHubImg,
     features: [
       "Enabled tourists to explore and book cultural festivals, tours, and heritage destinations, including Timket, Irreecha, and Lalibela",
       "Integrated accommodation booking for hotels and other travel stays",
@@ -187,7 +193,7 @@ export const PROJECTS: Project[] = [
     description: "A web-based university clearance platform designed to streamline the student clearance process after completing an academic year or program by coordinating approvals across multiple university departments.",
     longDescription: "University Clearance Management System eliminates manual paper sign-offs by automating verification across library, dormitory, sports department, finance, and registrar offices with real-time clearance status tracking.",
     technologies: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Tailwind CSS", "REST API"],
-    image: "/src/assets/images/project_university_clearance.jpg",
+    image: clearanceImg,
     features: [
       "Digitized student clearance requests and departmental approval workflows",
       "Enabled departments to review, verify, and update student clearance status",

@@ -90,7 +90,11 @@ export const ProjectsSection: React.FC = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${
+                        project.id === 'leave-management' || project.id === 'freelancer-connect'
+                          ? 'object-contain'
+                          : 'object-cover'
+                      }`}
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#08080c] via-transparent to-transparent opacity-60" />
@@ -150,17 +154,15 @@ export const ProjectsSection: React.FC = () => {
                       <ArrowUpRight className="w-4 h-4" />
                     </button>
 
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2.5 text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-colors"
-                        title="View Source Repository"
-                      >
-                        <Github className="w-4 h-4" />
-                      </a>
-                    )}
+                    <button
+                      type="button"
+                      disabled
+                      aria-disabled="true"
+                      className="p-2.5 text-slate-500 bg-white/5 border border-white/10 rounded-xl cursor-not-allowed opacity-50 transition-colors"
+                      title="Source repository link disabled"
+                    >
+                      <Github className="w-4 h-4" />
+                    </button>
                   </div>
 
                 </div>
