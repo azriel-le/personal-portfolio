@@ -16,10 +16,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     };
     if (project) {
       document.body.style.overflow = 'hidden';
+      // Stop Lenis smooth scroll so mouse wheel works inside modal
+      window.dispatchEvent(new CustomEvent('lenis-stop'));
       window.addEventListener('keydown', handleKeyDown);
     }
     return () => {
       document.body.style.overflow = 'unset';
+      // Resume Lenis smooth scroll
+      window.dispatchEvent(new CustomEvent('lenis-start'));
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [project, onClose]);
@@ -29,7 +33,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   return createPortal(
     <AnimatePresence>
       {project && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 lg:p-8 overflow-y-auto">
+        <div data-lenis-prevent className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 lg:p-8 overflow-y-auto">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -45,6 +49,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            data-lenis-prevent
+            onWheel={(e) => e.stopPropagation()}
             className="relative w-full max-w-4xl bg-[#0d0e15] border border-white/10 rounded-3xl shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col my-auto"
           >
             {/* Header Bar */}
@@ -68,7 +74,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
 
             {/* Scrollable Content Body */}
-            <div className="p-6 sm:p-8 overflow-y-auto space-y-8">
+            <div data-lenis-prevent className="p-6 sm:p-8 overflow-y-auto space-y-8 overscroll-contain">
               
               {/* Visual Hero Preview Banner */}
               <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group bg-slate-900/50">

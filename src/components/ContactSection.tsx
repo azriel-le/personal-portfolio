@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import confetti from 'canvas-confetti';
-import { Send, Mail, MapPin, Github, Linkedin, CheckCircle2, Sparkles, Clock, Copy, Check } from 'lucide-react';
+import { Send, Mail, MapPin, Github, Linkedin, CheckCircle2, Sparkles, Clock, Copy, Check, Phone } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const ContactSection: React.FC = () => {
@@ -16,14 +16,14 @@ export const ContactSection: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
   const [localTime, setLocalTime] = useState<string>('');
 
-  // Live ticking clock for Addis Ababa / East Africa Time (UTC+3)
+  // Live ticking clock for Ethiopia / East Africa Time (UTC+3)
   useEffect(() => {
     const updateTime = () => {
       try {
         const timeStr = new Date().toLocaleTimeString('en-US', {
-          timeZone: 'Africa/Addis_Ababa',
           hour: '2-digit',
           minute: '2-digit',
           second: '2-digit',
@@ -125,6 +125,12 @@ export const ContactSection: React.FC = () => {
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
+  const copyPhoneToClipboard = () => {
+    navigator.clipboard.writeText(PERSONAL_INFO.phone);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2000);
+  };
+
   return (
     <section id="contact" className="py-24 relative overflow-hidden bg-[#07070b]">
       {/* Background Lighting & Glow Effects */}
@@ -191,6 +197,36 @@ export const ContactSection: React.FC = () => {
                     <span>{localTime || 'UTC+3 (Addis Ababa)'}</span>
                   </span>
                 </div>
+              </div>
+            </div>
+
+            {/* Direct Phone Card (Above LinkedIn & GitHub) */}
+            <div className="p-6 sm:p-7 rounded-3xl glass-panel border border-white/10 space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-slate-400">
+                  <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>DIRECT PHONE / CALL</span>
+                </div>
+                <button
+                  onClick={copyPhoneToClipboard}
+                  className="px-3 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-mono text-emerald-300 border border-white/10 flex items-center gap-1.5 transition-colors cursor-pointer"
+                  title="Copy phone number"
+                >
+                  {copiedPhone ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copiedPhone ? 'Copied!' : 'Copy Phone'}</span>
+                </button>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <a
+                  href={`tel:${PERSONAL_INFO.phone}`}
+                  className="font-display font-bold text-xl sm:text-2xl text-white hover:text-emerald-300 transition-colors tracking-wide flex items-center gap-2.5"
+                >
+                  <span>{PERSONAL_INFO.phoneFormatted}</span>
+                </a>
+                <span className="text-xs font-mono text-slate-400 bg-white/5 px-2.5 py-1 rounded-md border border-white/10">
+                  {PERSONAL_INFO.phone}
+                </span>
               </div>
             </div>
 

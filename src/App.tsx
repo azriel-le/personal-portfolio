@@ -17,6 +17,10 @@ export default function App() {
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       touchMultiplier: 2,
+      allowNestedScroll: true,
+      prevent: (node) =>
+        node.hasAttribute?.('data-lenis-prevent') ||
+        Boolean(node.closest?.('[data-lenis-prevent]')),
     });
 
     function raf(time: number) {
@@ -26,7 +30,15 @@ export default function App() {
 
     requestAnimationFrame(raf);
 
+    // Listen for modal open/close to stop/start Lenis
+    const handleStop = () => lenis.stop();
+    const handleStart = () => lenis.start();
+    window.addEventListener('lenis-stop', handleStop);
+    window.addEventListener('lenis-start', handleStart);
+
     return () => {
+      window.removeEventListener('lenis-stop', handleStop);
+      window.removeEventListener('lenis-start', handleStart);
       lenis.destroy();
     };
   }, []);

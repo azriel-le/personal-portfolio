@@ -54,6 +54,8 @@ export const PERSONAL_INFO = {
   location: "Ethiopia",
   availability: "Available for Full-time Roles & High-Impact Projects",
   email: "zekariasali4@gmail.com",
+  phone: "0986925214",
+  phoneFormatted: "+251 986 925 214",
   github: "https://github.com/azriel-le",
   linkedin: "https://www.linkedin.com/in/zekarias-ali/",
   bio: "Software Engineer with a strong foundation in modern web engineering, interactive frontend architecture, and robust system design. Graduated from Wolkite University with a B.Sc. in Software Engineering, passionate about engineering products that combine visual finesse with scalable architecture.",
@@ -110,24 +112,24 @@ export const PROJECTS: Project[] = [
     id: "game-zone",
     number: "02",
     title: "Game Zone Management System",
-    category: "Mobile-First Business Platform",
-    tagline: "Real-time match tracking, venue analytics & revenue optimization for gaming lounges",
-    description: "A business operations platform tailored for gaming hubs to track active PlayStation console sessions, pool table matches, pricing tiers, and multi-branch daily revenue.",
-    longDescription: "Game Zone Management System provides venue operators with instant visibility into console occupancy, match durations, hourly rates, snack inventories, and branch performance. Designed mobile-first to allow managers to control venue activity directly from their smartphones.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Express API", "MySQL", "Chart.js / Motion"],
+    category: "Native Android Mobile Application",
+    tagline: "Real-time session tracking, automated billing & venue analytics built natively for Android",
+    description: "A native Android mobile application built with Kotlin for gaming lounge operators to manage PlayStation console sessions, pool table bookings, automated billing, and multi-branch revenue tracking in real time.",
+    longDescription: "Game Zone Management System is a native Android application engineered in Kotlin, designed to give gaming venue operators full control over their business operations from their mobile devices. The app delivers real-time console and pool table session monitoring with automated timer-based billing, dynamic pricing configurations, snack inventory management, and comprehensive daily revenue reporting across multiple branches — all through an intuitive Material Design 3 interface optimized for fast, one-handed operation.",
+    technologies: ["Kotlin", "Jetpack Compose", "MVVM Architecture", "Room Database", "Coroutines & Flow", "Material Design 3", "Hilt DI"],
     image: gameZoneImg,
     features: [
-      "Live Station Monitoring (PlayStation Consoles & Pool Tables)",
-      "Automated Session Timers & Hourly Billing Calculations",
-      "Multi-Branch Performance Comparison & Revenue Metrics",
-      "Custom Pricing Rules for Off-Peak Hours & VIP Lounges",
-      "Exportable Financial Reports & Daily Cashier Reconciliation"
+      "Real-Time Session Monitoring for PlayStation Consoles & Pool Tables",
+      "Automated Timer-Based Billing with Configurable Hourly Rates",
+      "Multi-Branch Revenue Dashboard with Daily & Monthly Analytics",
+      "Dynamic Pricing Rules for Peak Hours, Off-Peak & VIP Sections",
+      "Snack & Beverage Inventory Tracking with Low-Stock Alerts"
     ],
     architecture: [
-      "Mobile-optimized progressive layout with high touch targets",
-      "Real-time timer synchronization across device screens",
-      "Relational data model tracking match logs and price tiers",
-      "Sub-second data aggregation for live venue dashboards"
+      "MVVM architecture with clean separation of UI, domain, and data layers",
+      "Jetpack Compose declarative UI with Material Design 3 theming",
+      "Room persistence library for offline-first local data storage",
+      "Kotlin Coroutines & StateFlow for reactive, lifecycle-aware data streams"
     ],
     githubUrl: "https://github.com/azriel-le/game-zone-management",
     featured: true
